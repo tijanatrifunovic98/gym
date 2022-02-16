@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Gym Clients</title>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" 
+integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" 
+crossorigin="anonymous">
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand" href="#">Gym Clients</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+    <div class="navbar-nav">
+      <a class="nav-item nav-link active" th:href="@{/clients}">Clients <span class="sr-only">(current)</span></a>
+    </div>
+  </div>
+</nav>
+<br>
+<br>
+	<div class ="container">
+		<div class ="row">
+			<h1>List Clients</h1>
+		</div>
+			<div class ="row">
+				<div class="col-lg-3"> 
+					<a th:href ="@{/clients/new}" class="btn btn-primary btn-sm mb-3"> Add Client </a>
+				</div>
+			</div>
+
+		<table class="table table-striped table-dark">
+				<thead class ="table-dark">
+					<tr>
+					<th> Client First Name </th>
+					<th> Client Last Name </th>
+					<th> Client Email </th>
+					<th> Actions </th>
+					</tr>
+				</thead>
+				 <tbody>
+					 <tr th:each = "client: ${clients}">
+						 <td th:text = "${client.firstName}"> </td>
+						 <td th:text = "${client.lastName}"> </td>
+						 <td th:text = "${client.email}"> </td>
+						 <td>
+							 <a th:href = "@{/clients/edit{id} (id =${client.id})}"
+							 class ="btn btn-primary"> Update </a>
+						 </td>
+						 <td>
+							  <a th:href = "@{/clients/{id} (id =${client.id})}"
+							 class ="btn btn-danger"> Delete </a>
+						 </td>
+					 </tr>
+				 </tbody>
+		</table>
+	</div>
+</body>
+</html>

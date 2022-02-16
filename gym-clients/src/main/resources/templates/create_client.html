@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title> Gym Clients </title>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" 
+integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" 
+crossorigin="anonymous">
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand" href="#">Gym Clients</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+    <div class="navbar-nav">
+      <a class="nav-item nav-link active" th:href="@{/clients}">Clients <span class="sr-only">(current)</span></a>
+    </div>
+  </div>
+</nav>
+<br>
+<br>
+	<div class = "container">
+		<div class="row">
+			<div class="col-lg-6 col-md-6 col-sm-6 container justify-content-center card">
+				<h1 class ="text-center"> Create New Client </h1>
+					<div class="card-body"> 
+						<form th:action="@{/clients}" th:object = "${client}" method ="POST">
+							<div class ="form-group">
+								<label> Client First Name</label>
+									<input 
+									type ="text"
+									name="firstName"
+									th:field="*{firstName}"
+									class = "form-control"
+									placeholder="Enter Client First Name" 
+									/>
+							</div>
+							<div class ="form-group">
+								<label> Client Last Name</label>
+									<input 
+									type ="text"
+									name="lastName"
+									th:field="*{lastName}"
+									class = "form-control"
+									placeholder="Enter Client Last Name" 
+									/>
+							</div>
+							<div class ="form-group">
+								<label> Client Email</label>
+									<input 
+									type ="text"
+									name="email"
+									th:field="*{email}"
+									class = "form-control"
+									placeholder="Enter Email" 
+									/>
+							</div>
+
+							<div class ="box-footer">
+								<button type = "submit" class ="btn btn-primary">
+									Submit
+								</button>
+							</div>
+
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>
